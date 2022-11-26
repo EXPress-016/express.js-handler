@@ -6,8 +6,6 @@ export default new Method('post', (app) => {
   app.routesArray.forEach((route) => {
     if (route instanceof Router && (route as RouteType).method !== 'POST')
       return;
-    app.post(route.path, (req, res) => {
-      (route as RouteType).run(req, res);
-    });
+    app.post(route.path, (route as RouteType).run);
   });
 });

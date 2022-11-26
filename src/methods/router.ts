@@ -9,24 +9,16 @@ export default new Method('router', async (app) => {
     (router as RouterType).routes.forEach((route) => {
       switch (route.method) {
         case 'GET':
-          Router.get(route.path, (req, res) => {
-            route.run(req, res);
-          });
+          Router.get(route.path, route.run);
           break;
         case 'POST':
-          Router.post(route.path, (req, res) => {
-            route.run(req, res);
-          });
+          Router.post(route.path, route.run);
           break;
         case 'PUT':
-          Router.put(route.path, (req, res) => {
-            route.run(req, res);
-          });
+          Router.put(route.path, route.run);
           break;
         case 'DELETE':
-          Router.delete(route.path, (req, res) => {
-            route.run(req, res);
-          });
+          Router.delete(route.path, route.run);
           break;
       }
     });

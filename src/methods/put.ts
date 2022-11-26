@@ -6,8 +6,6 @@ export default new Method('put', (app) => {
   app.routesArray.forEach((route) => {
     if (route instanceof Router && (route as RouteType).method !== 'PUT')
       return;
-    app.put(route.path, (req, res) => {
-      (route as RouteType).run(req, res);
-    });
+    app.put(route.path, (route as RouteType).run);
   });
 });

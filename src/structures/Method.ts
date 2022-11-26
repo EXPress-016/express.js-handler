@@ -1,8 +1,7 @@
-import { ExtenedExpress } from '../typings/Express';
+import { MethodType } from '../typings/Method';
 
 export class Method {
-  constructor(
-    public method: string,
-    public run: (app: ExtenedExpress) => any
-  ) {}
+  constructor(methodOptions: MethodType) {
+    Object.assign(this, methodOptions);
+  }
 }

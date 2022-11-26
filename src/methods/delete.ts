@@ -6,8 +6,6 @@ export default new Method('delete', (app) => {
   app.routesArray.forEach((route) => {
     if (route instanceof Router && (route as RouteType).method !== 'DELETE')
       return;
-    app.delete(route.path, (req, res) => {
-      (route as RouteType).run(req, res);
-    });
+    app.delete(route.path, (route as RouteType).run);
   });
 });
