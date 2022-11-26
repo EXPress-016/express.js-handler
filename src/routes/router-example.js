@@ -7,16 +7,20 @@ module.exports = new Router({
     {
       path: '/',
       method: 'GET',
-      run: async (req, res) => {
-        res.send('Hello World!');
-      },
+      run: [
+        async (req, res) => {
+          res.send('Hello World!');
+        },
+      ],
     },
     {
       path: '/',
       method: 'POST',
-      run: async (req, res) => {
-        res.send('Hello World!');
-      },
+      run: [
+        async (req, res) => {
+          res.send('Hello World!');
+        },
+      ],
     },
   ],
 });

@@ -3,7 +3,5 @@ const Router = require('../structures/Router');
 
 app.routesArray.forEach((route) => {
   if (route instanceof Router && route.method !== 'GET') return;
-  app.get(route.path, (req, res) => {
-    route.run(req, res);
-  });
+  app.get(route.path, route.run);
 });

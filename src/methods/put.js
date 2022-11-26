@@ -3,7 +3,5 @@ const Router = require('../structures/Router');
 
 app.routesArray.forEach((route) => {
   if (route instanceof Router && route.method !== 'POST') return;
-  app.post(route.path, (req, res) => {
-    route.run(req, res);
-  });
+  app.post(route.path, route.run);
 });
